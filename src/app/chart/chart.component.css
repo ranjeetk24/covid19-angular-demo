@@ -7,3 +7,5 @@ example-form {
   .example-full-width {
     width: 100%;
   }
+
+  .i-am-centered { margin: auto; max-width: 300px;}

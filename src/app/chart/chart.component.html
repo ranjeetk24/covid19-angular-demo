@@ -1,10 +1,14 @@
 <div [@routerTransition]>
   <div class="form-group">
-    <h1> <div style="color: red;"><img  class="images" with="20" height="20" src="assets/live.gif"> LIVE </div> Covid 19 stats {{countryName}} <img  class="images" class="images" with="20" height="20" src={{COVID_DATA.countryInfo.flag}}></h1>
+    <div style="color: red;">
+      <!-- <img  class="images" with="20" height="20" src="assets/live.gif">  -->
+      LIVE </div>
+    <div class="i-am-centered"><h1>  Covid 19 stats {{countryName}} <img  class="images" class="images" with="20" height="20" src={{COVID_DATA.countryInfo.flag}}></h1></div>
     
   </div>
-    <div>
+  <div>
       <form [formGroup]="countryForm" (ngSubmit)="onFormSubmit()">
+        <div class="row i-am-centered">
         <mat-form-field>
           <mat-label>Select Country</mat-label>
           <mat-select formControlName="country" (selectionChange)="onCountryChange()">
@@ -14,7 +18,40 @@
           </mat-select>
         
         </mat-form-field>
+
+
+        
+        <div class="row i-am-centered" style="width: 100%;">        
+          <div style="width: 33%">
+            <div class="card text-white bg-dark mb-3">
+                <div class="card-header">Recovery Rate</div>
+                <div class="card-body">
+                    <h4 class="card-title">{{recoveryRate}}%</h4>                   
+                </div>
+            </div>            
+        </div>        
+        <div style="width: 33%">
+                  <div class="card text-white bg-dark mb-3">
+                      <div class="card-header">Fatality Rate</div>
+                      <div class="card-body">
+                          <h4 class="card-title">{{fatalityRate}}%</h4>                         
+                      </div>
+              </div>
+            </div>
+            <div style="width: 33%">
+                <div class="card text-white bg-dark mb-3">
+                    <div class="card-header">Critical Cases</div>
+                    <div class="card-body">
+                        <h4 class="card-title">{{criticalCasesRate}}%</h4>                       
+                    </div>                   
+            </div>
+          </div>
+          </div>
+      </div>
         </form>
+
+
+
     </div>
     <div class="form-group">
       <table class="table table-dark table-hover">
@@ -32,9 +69,13 @@
           <tr>
             
              <td style="color:orangered">{{totalCases}} </td>
-             <td style="color:orange">{{activeCases}} + {{COVID_DATA.todayCases}} new cases today</td>
+             <td style="color:orange">{{activeCases}} 
+              <!-- + {{COVID_DATA.todayCases}} new cases today -->
+            </td>
              <td style="color:lawngreen">{{recoveredCases}}</td>
-             <td style="color:lightgrey">{{deathCases}}  + {{COVID_DATA.todayDeaths}} deaths today </td>
+             <td style="color:lightgrey">{{deathCases}}  
+              <!-- + {{COVID_DATA.todayDeaths}} deaths today  -->
+            </td>
            
              
           </tr>
@@ -42,8 +83,7 @@
     </table>
          
       </div>
- 
-     
+      
 <div class="chart-wrapper" *ngIf="pieChartData">
     <canvas baseChart 
     [data]="pieChartData" 
@@ -54,6 +94,7 @@
     [legend]="pieChartLegend">
   </canvas>
 </div>
+
 
             <div class="card-body" *ngIf="polarAreaChartData1">
                 <canvas baseChart  [data]="polarAreaChartData1" [labels]="polarAreaChartLabels1" [legend]="polarAreaLegend1" [chartType]="polarAreaChartType1" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
@@ -73,40 +114,9 @@
           </div>
 
      
-<div class="row" style="width: 100%;">
-        
-  <div class="col-sm-4">
-    <div class="card text-white bg-dark mb-3">
-        <div class="card-header">Recovery Rate</div>
-        <div class="card-body">
-            <h4 class="card-title">{{recoveryRate}}%</h4>
-           
-        </div>
+
     </div>
-    
-</div>
-        <div class="col-sm-4">
-          <div class="card text-white bg-dark mb-3">
-              <div class="card-header">Fatality Rate</div>
-              <div class="card-body">
-                  <h4 class="card-title">{{fatalityRate}}%</h4>
-                 
-              </div>
-          </div>
-          
-      </div>
-      <div class="col-sm-4">
-        <div class="card text-white bg-dark mb-3">
-            <div class="card-header">Critical Cases</div>
-            <div class="card-body">
-                <h4 class="card-title">{{criticalCasesRate}}%</h4>
-               
-            </div>
-        </div>
-        
-    </div>
-    </div>
-</div>
+
 
   
         

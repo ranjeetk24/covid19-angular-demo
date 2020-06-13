@@ -1,0 +1,119 @@
+<div [@routerTransition]>
+    <div class="form-group">
+      <div style="color: red;"><img  class="images" with="20" height="20" src="assets/live.gif"> LIVE </div>
+      <div class="i-am-centered"><h1>  Covid 19 stats {{countryName}} <img  class="images" class="images" with="20" height="20" src={{COVID_DATA.countryInfo.flag}}></h1></div>
+      
+    </div>
+    <div>
+          <div class="row i-am-centered" style="width: 100%;">        
+            <div style="width: 33%">
+              <div class="card text-white bg-dark mb-3">
+                  <div class="card-header">Recovery Rate</div>
+                  <div class="card-body">
+                      <h4 class="card-title">{{recoveryRate}}%</h4>                   
+                  </div>
+              </div>            
+          </div>        
+          <div style="width: 33%">
+                    <div class="card text-white bg-dark mb-3">
+                        <div class="card-header">Fatality Rate</div>
+                        <div class="card-body">
+                            <h4 class="card-title">{{fatalityRate}}%</h4>                         
+                        </div>
+                </div>
+              </div>
+              <div style="width: 33%">
+                  <div class="card text-white bg-dark mb-3">
+                      <div class="card-header">Critical Cases</div>
+                      <div class="card-body">
+                          <h4 class="card-title">{{criticalCasesRate}}%</h4>                       
+                      </div>                   
+              </div>
+            </div>
+            </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <table class="table table-dark table-hover">
+          <thead>
+             <tr>
+                <th style="color:orangered">Total Cases</th>
+                <th style="color:orange">Active Cases</th>
+                <th style="color:lawngreen">Recovered Cases</th>
+                <th style="color: lightgrey">Deaths</th>
+             </tr>
+          </thead>
+          <tbody>
+            <tr>
+               <td style="color:orangered">{{totalCases}} </td>
+               <td style="color:orange">{{activeCases}} 
+                <!-- + {{COVID_DATA.todayCases}} new cases today -->
+              </td>
+               <td style="color:lawngreen">{{recoveredCases}}</td>
+               <td style="color:lightgrey">{{deathCases}}  
+                <!-- + {{COVID_DATA.todayDeaths}} deaths today  -->
+              </td>
+            </tr>
+         </tbody>
+      </table>
+           
+        </div>
+        
+
+    <mat-table [dataSource]="datasource" matSort >
+        <!-- User name Definition -->
+        <ng-container matColumnDef="loc">
+          <mat-header-cell *matHeaderCellDef><h3><b>State</b> </h3></mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{row.loc }} </mat-cell>
+        </ng-container>
+      
+       
+        <ng-container matColumnDef="totalConfirmed">
+          <mat-header-cell *matHeaderCellDef ><h3><b> Total Cases </b></h3></mat-header-cell>
+          <mat-cell *matCellDef="let row"><b> {{row.totalConfirmed}}</b> </mat-cell>
+        </ng-container>
+        
+        <ng-container matColumnDef="confirmedCasesIndian">
+            <mat-header-cell *matHeaderCellDef><h3><b> Indian</b> </h3></mat-header-cell>
+            <mat-cell *matCellDef="let row"><b> {{row.confirmedCasesIndian}}</b></mat-cell>
+          </ng-container>
+    
+          <ng-container matColumnDef="confirmedCasesForeign">
+            <mat-header-cell *matHeaderCellDef><h3><b> Foreigner</b> </h3></mat-header-cell>
+            <mat-cell *matCellDef="let row"><b> {{row.confirmedCasesForeign}} </b></mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="discharged">
+            <mat-header-cell *matHeaderCellDef><h3><b> Dicharged</b> </h3></mat-header-cell>
+            <mat-cell *matCellDef="let row"><b> {{row.discharged}} </b></mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="deaths">
+            <mat-header-cell *matHeaderCellDef><h3><b> Deaths</b> </h3></mat-header-cell>
+            <mat-cell *matCellDef="let row"><b> {{row.deaths}} </b></mat-cell>
+          </ng-container>
+    
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+
+
+
+
+ 
+  
+  
+             
+        
+  
+              
+  
+       
+  
+     
+  
+  
+    
+          
+    
+  

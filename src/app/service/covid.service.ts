@@ -14,4 +14,8 @@ export class CovidService {
   getCovid19ReportByCountry(country: string) {
     return this.http.get(`https://corona.lmao.ninja/v2/countries/${country}`);
   }
+
+  getCovid19IndianStatesReport() {
+    return this.http.get('https://api.rootnet.in/covid19-in/stats/latest/');
+  }
 }

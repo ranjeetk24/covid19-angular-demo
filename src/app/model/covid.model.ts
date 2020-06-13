@@ -1,4 +1,5 @@
 import { CountryInfo } from './countryInfo.model';
+import { Regional } from './regional.model';
 
 export class Covid {
 

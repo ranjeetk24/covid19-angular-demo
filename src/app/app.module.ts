@@ -14,13 +14,15 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatInputModule} from '@angular/material/input';
 import { TableComponent } from './table/table.component';
 import {MatSortModule} from '@angular/material/sort';
+import { IndiastatComponent } from './indiastat/indiastat.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     ChartComponent,
-    TableComponent
+    TableComponent,
+    IndiastatComponent
   ],
   imports: [
     BrowserModule,

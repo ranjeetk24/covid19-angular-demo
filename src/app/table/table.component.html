@@ -1,3 +1,5 @@
+<div [@routerTransition]>
+  <div class="i-am-centered table-striped">
 <mat-table [dataSource]="datasource" matSort >
     <!-- User name Definition -->
     <ng-container matColumnDef="country">
@@ -24,5 +26,6 @@
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
   <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
 </mat-table>
-  
+</div>
+</div>
    

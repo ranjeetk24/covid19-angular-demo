@@ -1,4 +1,4 @@
-import { CountryInfo } from './country-info.model';
+import { CountryInfo } from './countryInfo.model';
 
 describe('CountryInfo', () => {
   it('should create an instance', () => {
